@@ -1,0 +1,35 @@
+openapi: 3.0.1
+info:
+  title: httpbin.org
+  description: API Management facade for a very handy and free online HTTP tool.
+  version: "1.0"
+servers:
+- url: http://{host}:{port}
+  variables:
+    host:
+      default: localhost
+    port:
+      default: '80'
+- url: https://{host}:{port}
+  variables:
+    host:
+      default: localhost
+    port:
+      default: '80'
+paths:
+  /get:
+    get:
+      description: Returns GET data.
+      operationId: /get
+      responses:
+        200:
+          description: Success
+  /anything:
+    get:
+      description: Returns request data, including method used.
+      operationId: /anything
+      responses:
+        200:
+          description: Success
+
+components: {}
