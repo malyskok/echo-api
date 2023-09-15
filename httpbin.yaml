@@ -7,15 +7,35 @@ servers:
 - url: http://{host}:{port}
   variables:
     host:
-      default: localhost
+      default: 34.31.248.49
     port:
       default: '80'
-- url: https://{host}:{port}
+    service:
+      default: 'echo'
+- url: http://{host}:{port}
   variables:
     host:
-      default: localhost
+      default: 34.31.248.49
     port:
       default: '80'
+    service:
+      default: 'httpbin'
+- url: https://{host}:{port}/{service}
+  variables:
+    host:
+      default: 34.31.248.49
+    port:
+      default: '443'
+    service:
+      default: 'echo'
+- url: https://{host}:{port}/{service}
+  variables:
+    host:
+      default: 34.31.248.49
+    port:
+      default: '443'
+    service:
+      default: 'httpbin'
 paths:
   /get:
     get:
