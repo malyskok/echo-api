@@ -4,7 +4,7 @@ info:
   description: API Management facade for a very handy and free online HTTP tool.
   version: "1.0"
 servers:
-- url: http://{host}:{port}
+- url: http://{host}:{port}/{service}
   variables:
     host:
       default: 34.31.248.49
@@ -12,7 +12,7 @@ servers:
       default: '80'
     service:
       default: 'echo'
-- url: http://{host}:{port}
+- url: http://{host}:{port}/{service}
   variables:
     host:
       default: 34.31.248.49
