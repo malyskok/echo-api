@@ -7,7 +7,7 @@ servers:
 - url: http://{host}:{port}/{service}
   variables:
     host:
-      default: 34.31.248.49
+      default: KONG-IP
     port:
       default: '80'
     service:
@@ -15,7 +15,7 @@ servers:
 - url: http://{host}:{port}/{service}
   variables:
     host:
-      default: 34.31.248.49
+      default: KONG-IP
     port:
       default: '80'
     service:
@@ -23,7 +23,7 @@ servers:
 - url: https://{host}:{port}/{service}
   variables:
     host:
-      default: 34.31.248.49
+      default: KONG-IP
     port:
       default: '443'
     service:
@@ -31,7 +31,7 @@ servers:
 - url: https://{host}:{port}/{service}
   variables:
     host:
-      default: 34.31.248.49
+      default: KONG-IP
     port:
       default: '443'
     service:
@@ -44,6 +44,8 @@ paths:
       responses:
         200:
           description: Success
+      security:
+        - apikey: []
   /anything:
     get:
       description: Returns request data, including method used.
@@ -51,5 +53,12 @@ paths:
       responses:
         200:
           description: Success
+      security:
+        - apikey: []
 
-components: {}
+components:
+  securitySchemes:
+    apikey:
+      type: apiKey
+      name: apikey
+      in: header
